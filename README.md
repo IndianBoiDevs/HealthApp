@@ -1,2 +1,2 @@
 # HealthApp
-Small project with a few developers
+## Small project with a few developers
