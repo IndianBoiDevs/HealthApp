@@ -1,31 +1,28 @@
 import javafx.application.Application;
-import javafx.scene.Group;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
+
 import javafx.stage.Stage;
 
 public class Start extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //creating a Group object
-        Group group = new Group();
 
-        //Creating a Scene by passing the group object, height and width
-        Scene scene = new Scene(group ,600, 300);
+        //this is the Parent created vy fxml loader
+        Parent root = FXMLLoader.load(getClass().getResource("login\\login.fxml"));
 
         //setup default screen values
         setUpDisplay(primaryStage);
 
-        //setting color for the scene
-        scene.setFill(Color.WHITE);
-
         //Adding the scene to Stage
-        primaryStage.setScene(scene);
+        primaryStage.setScene(new Scene(root,600,350));
 
         //Displaying the contents of the stage
         primaryStage.show();
+
     }
 
     private void setUpDisplay(Stage primaryStage) {
@@ -39,8 +36,11 @@ public class Start extends Application {
         //set the icon as the icon
         primaryStage.getIcons().add(icon);
 
-        //run app in full screen
-        primaryStage.setMaximized(true);
+        //make sure screen cannot be resized
+        primaryStage.setResizable(false);
+
+//        //run app in full screen
+//        primaryStage.setMaximized(true);
         
     }
 
