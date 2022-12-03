@@ -1,0 +1,18 @@
+plugins { 
+	id 'application'
+    	id 'org.openjfx.javafxplugin' version '0.0.13'
+}
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClassName("Start")
+}
+
+
+javafx {
+    version = "19"
+    modules = ['javafx.controls', 'javafx.graphics']
+}
