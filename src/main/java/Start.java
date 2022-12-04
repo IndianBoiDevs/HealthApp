@@ -1,3 +1,4 @@
+import assets.StageManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +12,9 @@ public class Start extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+        //set the stage variable for our stage manager
+        StageManager s = new StageManager(primaryStage);
+
         //this is the Parent created vy fxml loader
         Parent root = FXMLLoader.load(getClass().getResource("login\\login.fxml"));
 
@@ -18,7 +22,7 @@ public class Start extends Application {
         setUpDisplay(primaryStage);
 
         //Adding the scene to Stage
-        primaryStage.setScene(new Scene(root,600,350));
+        primaryStage.setScene(new Scene(root,600,360));
 
         //Displaying the contents of the stage
         primaryStage.show();
@@ -39,9 +43,6 @@ public class Start extends Application {
         //make sure screen cannot be resized
         primaryStage.setResizable(false);
 
-//        //run app in full screen
-//        primaryStage.setMaximized(true);
-        
     }
 
 

@@ -1,5 +1,6 @@
 package controllers;
 
+import assets.StageManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,7 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
+import javafx.stage.Stage;
+
 
 import java.io.IOException;
 
@@ -24,14 +26,7 @@ public class Login {
     @FXML
     private TextField username;
 
-
-
-    /**
-    * The default constructor
-     * */
-    public Login(){
-
-    }
+    private static Stage stage;
 
     /**
      *  Method called on button click
@@ -40,9 +35,9 @@ public class Login {
         checkCredentials();
     }
 
-    private void checkCredentials(){
-
-        //future functionality: get user via SQL Database!
+    private void checkCredentials() throws IOException {
+        //create a stage manager
+        StageManager manager = new StageManager();
 
         //extract the userName and password from the respective controls
         String user = username.getText().toString();
@@ -50,16 +45,24 @@ public class Login {
 
         //check to see if the person provided a username and password
         if(user.length() == 0){
+            // if the username isn't provide
+            warning.setTextFill(Color.color(1, 0, 0));
             warning.setText("Please provide a username!");
         }
         else if(pass.length() ==0){
+            // if the password isn't provide
+            warning.setTextFill(Color.color(1, 0, 0));
             warning.setText("Please provide a password!");
         }
         else{
-            //check to see if the person matches credntials
+            //future functionality: get user via SQL Database!
+            //check to see if the person matches credentials
             if(user.equals("admin") && pass.equals("admin")){
-                warning.setTextFill((Paint)Color.GREEN);
+                warning.setTextFill(Color.color(0, 1, 0));
                 warning.setText("Success!");
+
+                //change the scene
+                manager.changeScene("workspace\\workspace.fxml");
             }
         }
 
