@@ -60,9 +60,17 @@ public class Login {
             if(user.equals("admin") && pass.equals("admin")){
                 warning.setTextFill(Color.color(0, 1, 0));
                 warning.setText("Success!");
-
                 //change the scene
                 manager.changeScene("workspace\\workspace.fxml");
+            }
+            else{
+                //reset the boxes
+                username.setText("");
+                password.setText("");
+
+                // if the credentials don't match
+                warning.setTextFill(Color.color(1, 0, 0));
+                warning.setText("Please provide correct credentials!");
             }
         }
 
