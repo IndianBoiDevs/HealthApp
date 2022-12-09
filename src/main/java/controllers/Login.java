@@ -61,7 +61,7 @@ public class Login {
                 warning.setTextFill(Color.color(0, 1, 0));
                 warning.setText("Success!");
                 //change the scene
-                manager.changeScene("workspace\\workspace.fxml");
+                manager.changeScene("workspace//workspace.fxml");
             }
             else{
                 //reset the boxes

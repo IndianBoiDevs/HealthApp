@@ -68,7 +68,7 @@
                <graphic>
                   <ImageView fitHeight="57.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@workspace\Logout.png" />
+                        <Image url="@/workspace/Logout.png" />
                      </image></ImageView>
                </graphic>
                <font>
