@@ -11,11 +11,13 @@ on:
   push:
     branches: 
     - main
+    - dev
     - login_feature
     
   pull_request:
     branches: 
     - main
+    - dev
     - login_feature
 
 permissions:
