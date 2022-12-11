@@ -1,5 +1,6 @@
 package controllers;
 
+import assets.LoginTool;
 import assets.StageManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,6 +29,9 @@ public class Login {
 
     private static Stage stage;
 
+    //create a single login tool object
+    private static LoginTool loginTool = new LoginTool();
+
     /**
      *  Method called on button click
      * */
@@ -55,9 +59,12 @@ public class Login {
             warning.setText("Please provide a password!");
         }
         else{
-            //future functionality: get user via SQL Database!
+            //call the check if user exists method
+            int code = loginTool.checkIfUserExists(user,pass);
+
             //check to see if the person matches credentials
-            if(user.equals("admin") && pass.equals("admin")){
+            if(code == 0 || code == 1 || code == 2){
+                System.out.println("[Debug]: The user of type: " + code + " is logged in successfully");
                 warning.setTextFill(Color.color(0, 1, 0));
                 warning.setText("Success!");
                 //change the scene
