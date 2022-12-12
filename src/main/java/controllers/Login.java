@@ -21,13 +21,16 @@ public class Login {
     @FXML
     private Button loginButton;
     @FXML
+    private Button signupButton;
+    @FXML
     private Label warning;
     @FXML
     private PasswordField password;
     @FXML
     private TextField username;
 
-    private static Stage stage;
+    //create a stage manager
+    private static StageManager manager = new StageManager();
 
     //create a single login tool object
     private static LoginTool loginTool = new LoginTool();
@@ -36,12 +39,17 @@ public class Login {
      *  Method called on button click
      * */
     public void loginPressed(ActionEvent a) throws IOException{
+        System.out.println("[Debug]: User has selected login in");
         checkCredentials();
     }
 
+    public void signUpPressed(ActionEvent a) throws IOException{
+        System.out.println("[Debug]: User has selected sign up");
+        //change the scene to the sign up
+        manager.changeScene("login//signup.fxml");
+    }
+
     private void checkCredentials() throws IOException {
-        //create a stage manager
-        StageManager manager = new StageManager();
 
         //extract the userName and password from the respective controls
         String user = username.getText().toString();
@@ -59,12 +67,29 @@ public class Login {
             warning.setText("Please provide a password!");
         }
         else{
+
             //call the check if user exists method
             int code = loginTool.checkIfUserExists(user,pass);
 
-            //check to see if the person matches credentials
-            if(code == 0 || code == 1 || code == 2){
-                System.out.println("[Debug]: The user of type: " + code + " is logged in successfully");
+            //check to see if the person matches credentials for admin
+            if(code == 0){
+                System.out.println("[Debug]: The user of type admin is logged in successfully");
+                warning.setTextFill(Color.color(0, 1, 0));
+                warning.setText("Success!");
+                //change the scene
+                manager.changeScene("workspace//workspace.fxml");
+            }
+            //for staff
+            else if (code == 1 ){
+                System.out.println("[Debug]: The user of type staff is logged in successfully");
+                warning.setTextFill(Color.color(0, 1, 0));
+                warning.setText("Success!");
+                //change the scene
+                manager.changeScene("workspace//workspace.fxml");
+            }
+            //for patient
+            else if (code == 2) {
+                System.out.println("[Debug]: The user of type patient is logged in successfully");
                 warning.setTextFill(Color.color(0, 1, 0));
                 warning.setText("Success!");
                 //change the scene
