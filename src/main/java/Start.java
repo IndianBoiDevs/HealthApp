@@ -1,6 +1,6 @@
 import assets.MyPreloader;
 import assets.StageManager;
-//import com.sun.javafx.application.LauncherImpl; //FIXME
+import com.sun.javafx.application.LauncherImpl; //FIXME
 import javafx.application.Application;
 import javafx.application.Preloader;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 public class Start extends Application {
 
-    private static final int COUNT_LIMIT = 500000;
+    private static final int COUNT_LIMIT = 50000000;
     @Override
     public void start(Stage primaryStage) throws Exception {
 

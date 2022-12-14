@@ -8,9 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.StageStyle;
 import controllers.Splash; //FIXME
 
-import java.util.Objects;
-
-
 public class MyPreloader extends Preloader {
 
     private Stage preloaderStage;
@@ -20,11 +17,10 @@ public class MyPreloader extends Preloader {
 
     }
 
-    @Override
     public void init() throws Exception {
 
         try {
-            Parent root1 = FXMLLoader.load((getClass().getResource("splash\\splash.fxml")));
+            Parent root1 = FXMLLoader.load(((getClass().getClassLoader().getResource("splash//splash.fxml")))); //FIXME
             scene = new Scene(root1);
         } catch (Exception e){
             e.printStackTrace();
@@ -59,13 +55,9 @@ public class MyPreloader extends Preloader {
 
         StateChangeNotification.Type type = info.getType();
 
-        switch(type){
-
-            case BEFORE_START:
-                //Called after MyApplication#init and before MyApplication# start is called
-                System.out.println("BEFORE_START");
-                preloaderStage.hide();
-                break;
+        if (type == StateChangeNotification.Type.BEFORE_START) {//Called after MyApplication#init and before MyApplication# start is called
+            System.out.println("BEFORE_START");
+            preloaderStage.hide();
         }
 
     }
