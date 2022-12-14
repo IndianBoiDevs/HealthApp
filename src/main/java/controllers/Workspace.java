@@ -14,7 +14,7 @@ public class Workspace {
 
     public void logOutButtonPressed(ActionEvent event) throws IOException {
         StageManager manager = new StageManager();
-        manager.changeScene("login\\login.fxml");
+        manager.changeScene("login//login.fxml");
 
     }
 }
