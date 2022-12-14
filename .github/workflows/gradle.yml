@@ -12,12 +12,14 @@ on:
     branches: 
     - main
     - dev
+    - US#2
     - login_feature
     
   pull_request:
     branches: 
     - main
     - dev
+    - US#2
     - login_feature
 
 permissions:
