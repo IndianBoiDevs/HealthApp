@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -9,38 +11,51 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Signup">
    <children>
-      <AnchorPane prefHeight="43.0" prefWidth="600.0">
+      <AnchorPane prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: lightgray;">
          <children>
-            <Button fx:id="backButton" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#backPressed" text="&lt; Back" />
-            <Button layoutX="499.0" layoutY="9.0" mnemonicParsing="false" text="Submit &gt;" />
+            <Button fx:id="backButton" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" onAction="#backPressed" style="-fx-background-color: red;" text="&lt; Back" textFill="WHITE" />
+            <Button fx:id="submitButton" layoutX="499.0" layoutY="5.0" mnemonicParsing="false" onAction="#submitPressed" style="-fx-background-color: green;" text="Submit &gt;" textFill="WHITE" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="362.0" prefWidth="600.0">
          <children>
-            <TextField layoutX="122.0" layoutY="29.0" />
-            <Text layoutX="14.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
-            <TextField layoutX="122.0" layoutY="72.0" />
-            <Text layoutX="14.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
-            <TextField layoutX="122.0" layoutY="116.0" />
-            <Text layoutX="14.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:" />
-            <TextField layoutX="122.0" layoutY="155.0" />
-            <Text layoutX="14.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" />
-            <Text layoutX="14.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" />
-            <TextField layoutX="122.0" layoutY="190.0" />
-            <Text layoutX="14.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insurance:" />
-            <Text layoutX="14.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insurance ID: " wrappingWidth="71.537109375" />
-            <TextField layoutX="122.0" layoutY="224.0" />
-            <TextField layoutX="122.0" layoutY="265.0" />
-            <Text layoutX="343.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-            <ComboBox layoutX="414.0" layoutY="72.0" prefWidth="150.0" />
-            <ComboBox layoutX="414.0" layoutY="116.0" prefWidth="150.0" />
-            <ComboBox layoutX="414.0" layoutY="155.0" prefWidth="150.0" />
-            <Text layoutX="330.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Of Birth:" />
-            <Text layoutX="346.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Month:" />
-            <Text layoutX="346.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Day:" />
-            <Text layoutX="346.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year:" />
-            <Text layoutX="14.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="71.537109375" />
-            <TextField layoutX="122.0" layoutY="302.0" />
+            <TextArea fx:id="response" editable="false" layoutX="288.0" layoutY="279.0" prefHeight="66.0" prefWidth="272.0" text="Please fill out all fields above!" />
+            <TextField fx:id="username" layoutX="122.0" layoutY="11.0" promptText="username" />
+            <Text layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
+            <PasswordField fx:id="password" layoutX="122.0" layoutY="45.0" promptText="password" />
+            <Text layoutX="14.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+            <Text layoutX="14.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:" />
+            <TextField fx:id="phone" layoutX="122.0" layoutY="115.0" promptText="phone number" />
+            <Text layoutX="14.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" />
+            <Text layoutX="14.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" />
+            <TextField fx:id="address" layoutX="122.0" layoutY="150.0" promptText="address" />
+            <Text layoutX="14.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insurance:" />
+            <Text layoutX="14.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insurance ID: " wrappingWidth="71.537109375" />
+            <TextField fx:id="insurance" layoutX="122.0" layoutY="288.0" promptText="insurance" />
+            <TextField fx:id="id" layoutX="122.0" layoutY="320.0" promptText="id" />
+            <Text layoutX="343.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <ComboBox fx:id="month" layoutX="410.0" layoutY="207.0" onAction="#monthSelected" prefWidth="150.0" promptText="--" />
+            <ComboBox fx:id="day" layoutX="410.0" layoutY="246.0" prefWidth="150.0" promptText="--" />
+            <ComboBox fx:id="year" layoutX="410.0" layoutY="172.0" onAction="#yearSelected" prefWidth="150.0" promptText="--" />
+            <Text layoutX="329.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Of Birth:" />
+            <Text layoutX="342.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Month:" />
+            <Text layoutX="342.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Day:" />
+            <Text layoutX="342.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year:" />
+            <Text layoutX="329.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="71.537109375" />
+            <TextField fx:id="email" layoutX="415.0" layoutY="110.0" promptText="email" />
+            <PasswordField fx:id="confirmPassword" layoutX="122.0" layoutY="79.0" promptText="re-enter password" />
+            <TextField fx:id="firstName" layoutX="415.0" layoutY="11.0" promptText="first name" />
+            <Text layoutX="329.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
+            <TextField fx:id="lastName" layoutX="415.0" layoutY="45.0" promptText="last name" />
+            <Text layoutX="329.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" />
+            <ComboBox fx:id="gender" layoutX="415.0" layoutY="77.0" prefWidth="150.0" promptText="--" />
+            <Text layoutX="329.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:" />
+            <Text layoutX="14.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:" />
+            <Text layoutX="14.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State:" />
+            <Text layoutX="14.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip Code:" />
+            <TextField fx:id="city" layoutX="122.0" layoutY="184.0" promptText="city" />
+            <ComboBox fx:id="state" layoutX="122.0" layoutY="216.0" prefHeight="25.0" prefWidth="149.0" promptText="--" />
+            <TextField fx:id="zip" layoutX="122.0" layoutY="254.0" promptText="zip code" />
          </children>
       </AnchorPane>
    </children>

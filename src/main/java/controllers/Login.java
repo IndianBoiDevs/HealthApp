@@ -1,9 +1,11 @@
 package controllers;
 
 import assets.LoginTool;
+import assets.Message;
 import assets.StageManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -13,9 +15,11 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class Login {
+public class Login implements Initializable {
 
     //instance variables these are the exact name of the components in the FXML
     @FXML
@@ -44,9 +48,15 @@ public class Login {
     }
 
     public void signUpPressed(ActionEvent a) throws IOException{
-        System.out.println("[Debug]: User has selected sign up");
-        //change the scene to the sign up
-        manager.changeScene("login//signup.fxml");
+        if(loginTool.isOfflineMode() == false) {
+            System.out.println("[Debug]: User has selected sign up");
+            //change the scene to the sign up
+            manager.changeScene("login//signup.fxml");
+        }
+        else{
+            warning.setTextFill(Color.color(1, 0, 0));
+            warning.setText("Offline,user registration unavailable");
+        }
     }
 
     private void checkCredentials() throws IOException {
@@ -111,5 +121,14 @@ public class Login {
 
     }
 
-
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Message m = new Message();
+        String message = m.getMessage();
+        if(message != null){
+            warning.setTextFill(Color.color(0, 1, 0));
+            warning.setText(message);
+            m.setMessage(null);
+        }
+    }
 }
