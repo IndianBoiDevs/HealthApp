@@ -56,7 +56,7 @@ public class MyPreloader extends Preloader {
         StateChangeNotification.Type type = info.getType();
 
         if (type == StateChangeNotification.Type.BEFORE_START) {//Called after MyApplication#init and before MyApplication# start is called
-            System.out.println("BEFORE_START");
+            System.out.println("[Debug]: BEFORE_START");
             preloaderStage.hide();
         }
 

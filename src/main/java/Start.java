@@ -1,6 +1,7 @@
 import assets.MyPreloader;
 import assets.StageManager;
 import com.sun.javafx.application.LauncherImpl; //FIXME
+import controllers.Splash;
 import javafx.application.Application;
 import javafx.application.Preloader;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +13,7 @@ import javafx.stage.Stage;
 
 public class Start extends Application {
 
-    private static final int COUNT_LIMIT = 50000000;
+    private static final int COUNT_LIMIT = 50000;
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -38,9 +39,8 @@ public class Start extends Application {
         //perform some heavy lifting (i.e. database start, check for application updates, etc.)
         for(int i = 0; i < COUNT_LIMIT; i++){
             double progress = (100 * i) / COUNT_LIMIT;
-            //LauncherImpl.notifyPreloader(this, new Preloader.ProgressNotification(progress));
-
-            System.setProperty("Start","MyPreloader");
+            // update the progress
+            notifyPreloader(new Preloader.ProgressNotification(progress));
         }
 
     }
@@ -70,7 +70,5 @@ public class Start extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //LauncherImpl.launchApplication(Start.class, MyPreloader.class, args); //FIXME
-        // launch(args);
     }
 }
