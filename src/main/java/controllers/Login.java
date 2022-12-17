@@ -87,7 +87,7 @@ public class Login implements Initializable {
                 warning.setTextFill(Color.color(0, 1, 0));
                 warning.setText("Success!");
                 //change the scene
-                manager.changeScene("workspace//workspace.fxml");
+                manager.changeScene("workspace//adminSpace.fxml");
             }
             //for staff
             else if (code == 1 ){
@@ -95,7 +95,7 @@ public class Login implements Initializable {
                 warning.setTextFill(Color.color(0, 1, 0));
                 warning.setText("Success!");
                 //change the scene
-                manager.changeScene("workspace//workspace.fxml");
+                manager.changeScene("workspace//staffSpace.fxml");
             }
             //for patient
             else if (code == 2) {
@@ -103,7 +103,7 @@ public class Login implements Initializable {
                 warning.setTextFill(Color.color(0, 1, 0));
                 warning.setText("Success!");
                 //change the scene
-                manager.changeScene("workspace//workspace.fxml");
+                manager.changeScene("workspace//patientSpace.fxml");
             }
             else{
                 //reset the boxes
