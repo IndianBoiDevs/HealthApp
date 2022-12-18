@@ -10,30 +10,36 @@ public class LoginTool {
     private static String password;
     private static Connection connection;
 
+
     private static boolean offlineMode;
 
     public LoginTool(){
 
-        //the connection information for the sql database
-        url = "jdbc:mysql://healthapp.zapto.org:3306/login?allowPublicKeyRetrieval=true&useSSL=false";
-        user = "root";
-        password = "healthappdb";
+        if(connection == null) {
+            //the connection information for the sql database
+            url = "jdbc:mysql://healthapp.zapto.org:3306/login?allowPublicKeyRetrieval=true&useSSL=false";
+            user = "root";
+            password = "healthappdb";
 
-        //try connecting to database
-        try{
+            //try connecting to database
+            try {
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
+                Class.forName("com.mysql.cj.jdbc.Driver");
 
-            //get connection to database
-            connection = DriverManager.getConnection(url,user,password);
-            System.out.println("[Debug]: Successfully connected to the database!");
+                //get connection to database
+                connection = DriverManager.getConnection(url, user, password);
+                System.out.println("[Debug]: Successfully connected to the database!");
 
-            //ensure that offline mode is set to false
-            offlineMode = false;
+                //ensure that offline mode is set to false
+                offlineMode = false;
+            } catch (Exception e) {
+                System.out.println("[Error]: unable to connect to the database!");
+                offlineMode = true;
+            }
         }
-        catch(Exception e){
-            System.out.println("[Error]: unable to connect to the database!");
-            offlineMode = true;
+
+        else{
+            System.out.println("[Debug]: Already Connected to the Database!");
         }
     }
 
@@ -75,5 +81,38 @@ public class LoginTool {
         }
         //if they fail to log in in any way
         return -1;
+    }
+
+    public boolean isOfflineMode() {
+        return offlineMode;
+    }
+
+    public ResultSet runQuery(String query){
+        try {
+            //create a statement
+            Statement myStatement = connection.createStatement();
+
+            ResultSet resultSet = myStatement.executeQuery(query);
+            return resultSet;
+        }
+        catch (SQLException e) {
+            System.out.println("[Error]: Unable to connect to the database!");
+
+            return null;
+        }
+    }
+
+    public int addUser(String stmt){
+        try {
+            //create a statement
+            Statement myStatement = connection.createStatement();
+
+            int resultSet = myStatement.executeUpdate(stmt);
+            return resultSet;
+        }
+        catch (SQLException e) {
+            System.out.println("[Error]: Unable to add the user to the database due to connection!");
+            return 0;
+        }
     }
 }

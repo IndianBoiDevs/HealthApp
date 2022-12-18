@@ -38,7 +38,7 @@ public class StageManager {
             //run app in non full screen
             stage.setMaximized(false);
 
-            stage.setHeight(360);
+            stage.setHeight(450);
             stage.setWidth(600);
 
             //Disable Resizing

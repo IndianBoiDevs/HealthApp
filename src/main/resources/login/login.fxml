@@ -45,6 +45,12 @@
             <PasswordField fx:id="password" layoutX="101.0" layoutY="198.0" promptText="Password" />
             <Button fx:id="loginButton" layoutX="85.0" layoutY="275.0" mnemonicParsing="false" onAction="#loginPressed" prefHeight="34.0" prefWidth="92.0" style="-fx-background-color: Red;" text="Login" textFill="WHITE" />
             <Label fx:id="warning" layoutX="99.0" layoutY="237.0" textFill="RED" />
+            <Button fx:id="signupButton" layoutX="85.0" layoutY="341.0" mnemonicParsing="false" onAction="#signUpPressed" prefHeight="34.0" prefWidth="92.0" style="-fx-background-color: Green;" text="Sign Up" textFill="WHITE" />
+            <Label layoutX="96.0" layoutY="315.0" text="    - or -" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </right>

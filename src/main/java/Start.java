@@ -27,7 +27,7 @@ public class Start extends Application {
         setUpDisplay(primaryStage);
 
         //Adding the scene to Stage
-        primaryStage.setScene(new Scene(root,600,360));
+        primaryStage.setScene(new Scene(root,600,400));
 
         //Displaying the contents of the stage
         primaryStage.show();
