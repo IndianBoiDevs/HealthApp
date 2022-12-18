@@ -1,5 +1,9 @@
+import assets.MyPreloader;
 import assets.StageManager;
+import com.sun.javafx.application.LauncherImpl; //FIXME
+import controllers.Splash;
 import javafx.application.Application;
+import javafx.application.Preloader;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,6 +13,7 @@ import javafx.stage.Stage;
 
 public class Start extends Application {
 
+    private static final int COUNT_LIMIT = 50000;
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -22,10 +27,21 @@ public class Start extends Application {
         setUpDisplay(primaryStage);
 
         //Adding the scene to Stage
-        primaryStage.setScene(new Scene(root,600,360));
+        primaryStage.setScene(new Scene(root,600,400));
 
         //Displaying the contents of the stage
         primaryStage.show();
+
+    }
+
+    public void init() throws Exception {
+
+        //perform some heavy lifting (i.e. database start, check for application updates, etc.)
+        for(int i = 0; i < COUNT_LIMIT; i++){
+            double progress = (100 * i) / COUNT_LIMIT;
+            // update the progress
+            notifyPreloader(new Preloader.ProgressNotification(progress));
+        }
 
     }
 
@@ -47,6 +63,12 @@ public class Start extends Application {
 
 
     public static void main(String args[]) {
-        launch(args);
+
+        try {
+            System.setProperty("javafx.preloader", MyPreloader.class.getCanonicalName());
+            launch(args);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
