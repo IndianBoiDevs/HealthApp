@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="467.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeView">
+   <children>
+      <Text layoutX="266.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to the Settings screen" />
+   </children>
+</AnchorPane>
