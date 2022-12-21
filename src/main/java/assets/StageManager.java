@@ -38,8 +38,8 @@ public class StageManager {
             //run app in non full screen
             stage.setMaximized(false);
 
-            stage.setHeight(450);
-            stage.setWidth(600);
+            //set the scene to specified size
+            stage.setScene(new Scene(pane,600,400));
 
             //Disable Resizing
             stage.setResizable(false);
@@ -51,9 +51,11 @@ public class StageManager {
 
             //run app in full screen
             stage.setMaximized(true);
+
+            //set the stage
+            stage.getScene().setRoot(pane);
         }
 
-        //set the stage
-        stage.getScene().setRoot(pane);
+
     }
 }
