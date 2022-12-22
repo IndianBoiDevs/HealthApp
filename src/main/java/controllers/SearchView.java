@@ -1,6 +1,7 @@
 package controllers;
 
 import assets.LoginTool;
+import assets.PatientPopUp;
 import assets.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,6 +12,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -66,6 +69,16 @@ public class SearchView implements Initializable {
             String getMeThis = search.getText();
             System.out.println("[Debug]: Give me: " + getMeThis);
             findPersonFromDB(getMeThis);
+        }
+    }
+
+    @FXML
+    public void selectionMade(MouseEvent click){
+        if(click.getButton().equals(MouseButton.PRIMARY)){
+            if(click.getClickCount() == 2){
+                System.out.println("[Debug]: Double clicked");
+                PatientPopUp.display();
+            }
         }
     }
 

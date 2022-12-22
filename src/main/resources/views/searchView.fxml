@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="932.0" prefWidth="1589.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SearchView">
    <children>
-      <TableView fx:id="patientTable" layoutX="14.0" layoutY="91.0" prefHeight="827.0" prefWidth="1301.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="274.0" AnchorPane.topAnchor="91.0">
+      <TableView fx:id="patientTable" layoutX="14.0" layoutY="91.0" onMouseClicked="#selectionMade" prefHeight="827.0" prefWidth="1301.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="274.0" AnchorPane.topAnchor="91.0">
         <columns>
           <TableColumn fx:id="firstName" prefWidth="192.0" text="First Name" />
           <TableColumn fx:id="lastName" prefWidth="210.0" text="Last Name" />
