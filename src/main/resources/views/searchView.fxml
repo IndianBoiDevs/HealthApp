@@ -9,7 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="932.0" prefWidth="1589.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SearchView">
+<AnchorPane prefHeight="932.0" prefWidth="1589.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SearchView">
    <children>
       <TableView fx:id="patientTable" layoutX="14.0" layoutY="91.0" onMouseClicked="#selectionMade" prefHeight="827.0" prefWidth="1301.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="274.0" AnchorPane.topAnchor="91.0">
         <columns>
@@ -17,7 +17,7 @@
           <TableColumn fx:id="lastName" prefWidth="210.0" text="Last Name" />
             <TableColumn fx:id="dateOfBirth" prefWidth="214.0" text="Date Of Birth" />
             <TableColumn fx:id="insurance" prefWidth="364.0" text="Insurance" />
-            <TableColumn fx:id="insuranceId" minWidth="0.0" prefWidth="307.0" text="Inurance ID" />
+            <TableColumn fx:id="insuranceId" minWidth="0.0" prefWidth="307.0" text="Insurance ID" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

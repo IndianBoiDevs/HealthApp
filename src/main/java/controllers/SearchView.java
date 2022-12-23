@@ -3,6 +3,7 @@ package controllers;
 import assets.LoginTool;
 import assets.PatientPopUp;
 import assets.Person;
+import assets.PersonHelper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -73,10 +74,16 @@ public class SearchView implements Initializable {
     }
 
     @FXML
-    public void selectionMade(MouseEvent click){
+    public void selectionMade(MouseEvent click) throws IOException {
         if(click.getButton().equals(MouseButton.PRIMARY)){
             if(click.getClickCount() == 2){
                 System.out.println("[Debug]: Double clicked");
+                Person person = patientTable.getSelectionModel().getSelectedItem();
+                System.out.println("[Debug]: " + person.getFirstName());
+
+                //set the person
+                PersonHelper.setUserSelected(person);
+
                 PatientPopUp.display();
             }
         }
@@ -146,6 +153,7 @@ public class SearchView implements Initializable {
                 String in = r.getString("insurance");
                 String id = r.getString("insuranceID");
                 Person here = new Person(fname,lname,dob,in,id);
+                here.setUserName(r.getString("username"));
                 found.add(here);
             } catch (SQLException e) {
                 System.out.println("[Debug]: In offline mode no patients reachable!");
@@ -172,6 +180,7 @@ public class SearchView implements Initializable {
         //run the query to get the resultset back
         ResultSet rs = sqlTool.runQuery("SELECT * FROM login.information " +
                 "LIMIT 100;");
+
         //refresh the list
         refreshList(rs);
     }

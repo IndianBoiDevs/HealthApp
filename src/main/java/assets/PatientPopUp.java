@@ -1,6 +1,8 @@
 package assets;
 
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -9,12 +11,16 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class PatientPopUp {
 
-    public static void display(){
+    private static Stage stage;
+
+    public static void display() throws IOException {
 
         //here we have a blank windows
-        Stage stage = new Stage();
+        stage = new Stage();
 
         //block user interaction with other windows until this windows is taken care of
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -25,36 +31,33 @@ public class PatientPopUp {
         //set the minimum width
         stage.setMinWidth(300);
 
-        //Temporary code
-        Label message = new Label();
-        message.setText("You are attempting to modify patient");
+        //this is the Parent created vy fxml loader
+        PatientPopUp p = new PatientPopUp();
+        Parent root = p.getScreen();
 
-        //create a button
-        Button close = new Button("Close");
-
-        //make the action close window
-        close.setOnAction(e-> stage.close());
-
-        VBox lay = new VBox(10);
-        lay.getChildren().addAll(message,close);
-        lay.setAlignment(Pos.CENTER);
-
-        //create a new scene
-        Scene scene = new Scene(lay);
-
-        //set the scene
-        stage.setScene(scene);
+        //Adding the scene to Stage
+        stage.setScene(new Scene(root,600,500));
 
         //Create an image object
         Image icon = new Image("views//icons//patient.png");
 
         //set the icon as the icon
         stage.getIcons().add(icon);
+        stage.setResizable(false);
 
         //finally show and wait until this windows is closed
         stage.showAndWait();
 
+    }
 
+    public static void close(){
+        stage.close();
+    }
+
+    private Parent getScreen() throws IOException {
+        //this is the Parent created vy fxml loader
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views//modifyPatient.fxml"));
+        return root;
 
     }
 }
