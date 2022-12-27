@@ -16,6 +16,7 @@ public class LoginTool {
     public LoginTool(){
 
         if(connection == null) {
+
             //the connection information for the sql database
             url = "jdbc:mysql://healthapp.zapto.org:3306/login?allowPublicKeyRetrieval=true&useSSL=false";
             user = "root";
@@ -45,6 +46,9 @@ public class LoginTool {
 
     public int checkIfUserExists(String username, String password){
 
+        //return value based off userType
+        int returnThis = -1;
+
         //this is for working offline as a demo
         if(offlineMode == true){
             //return 0 if this is the correct admin login
@@ -68,19 +72,36 @@ public class LoginTool {
                 //execute sql query
                 ResultSet resultSet = myStatement.executeQuery("SELECT * FROM login.credentials\n" +
                         "where username = '"+ username +"' AND password = '"+ password +"';");
+                while(resultSet.next()){
+                    //this will only execute if the person is found
+                    returnThis = Integer.parseInt(resultSet.getString("type"));
+                }
+
+                System.out.println("[Debug]: Using view " + returnThis);
+
+                ResultSet secondQuery = myStatement.executeQuery("SELECT * FROM login.information\n" +
+                        "where username = '"+ username +"';");
 
                 //process result set
-                while (resultSet.next()) {
-                    return Integer.parseInt(resultSet.getString("type"));
+                while (secondQuery.next()) {
+
+                    //add the person
+                    Person p = new Person(secondQuery.getString("firstName"),secondQuery.getString("lastName"),secondQuery.getString("birthday"),secondQuery.getString("insurance"), secondQuery.getString("insuranceID"));
+                    p.setUserName(secondQuery.getString("username"));
+                    //make it the current person
+                    PersonHelper.setCurrentUser(p);
+
+                    System.out.println("[Debug]: " + PersonHelper.getCurrentUser() + " is logging in!");
                 }
             }
-            catch (SQLException E){
+            catch (SQLException f){
+                System.out.println("It looks like you are offline please use demo credentials!");
                 offlineMode = true;
                 return -1;
             }
         }
-        //if they fail to log in in any way
-        return -1;
+        //make the return at the end
+        return returnThis;
     }
 
     public boolean isOfflineMode() {
@@ -99,6 +120,20 @@ public class LoginTool {
             System.out.println("[Error]: Unable to connect to the database!");
 
             return null;
+        }
+    }
+
+    public int updateDatabase(String query){
+        try {
+            //create a statement
+            Statement myStatement = connection.createStatement();
+
+            int resultSet = myStatement.executeUpdate(query);
+            return resultSet;
+        }
+        catch (SQLException e) {
+            System.out.println("[Error]: Unable to connect to the database!");
+            return 0;
         }
     }
 
