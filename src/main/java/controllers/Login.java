@@ -75,7 +75,6 @@ public class Login implements Initializable {
             //trigger the credntial set
             checkCredentials();
         }
-
     }
 
     private void checkCredentials() throws IOException {
