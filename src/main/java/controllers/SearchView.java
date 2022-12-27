@@ -85,6 +85,13 @@ public class SearchView implements Initializable {
                 PersonHelper.setUserSelected(person);
 
                 PatientPopUp.display();
+
+                //run the query to get the result back
+                ResultSet rs = sqlTool.runQuery("SELECT * FROM login.information " +
+                        "LIMIT 100;");
+
+                //refresh the list
+                refreshList(rs);
             }
         }
     }

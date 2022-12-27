@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
@@ -14,11 +15,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PatientPopUpController">
    <children>
-      <ScrollPane layoutY="-2.0" prefHeight="407.0" prefWidth="600.0" AnchorPane.bottomAnchor="-5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
+      <ScrollPane layoutY="-2.0" prefHeight="406.0" prefWidth="600.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
          <content>
-          <AnchorPane prefHeight="1088.0" prefWidth="500.0" style="-fx-background-color: lightgray;">
+          <AnchorPane prefHeight="1088.0" prefWidth="605.0" style="-fx-background-color: lightgray;">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="100.0" stroke="WHITE" strokeType="INSIDE" width="625.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="100.0" layoutX="-2.0" stroke="WHITE" strokeType="INSIDE" width="610.0" />
                   <ImageView fitHeight="69.0" fitWidth="94.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/patientPicture.png" />
@@ -58,7 +59,6 @@
                   <TextField fx:id="lastName" layoutX="253.0" layoutY="191.0" prefHeight="25.0" prefWidth="245.0" />
                   <TextField fx:id="job" layoutX="253.0" layoutY="358.0" prefHeight="25.0" prefWidth="245.0" />
                   <TextField fx:id="phoneNumber" layoutX="253.0" layoutY="325.0" prefHeight="25.0" prefWidth="245.0" />
-                  <TextField fx:id="race" layoutX="253.0" layoutY="258.0" prefHeight="25.0" prefWidth="245.0" />
                   <Label layoutX="114.0" layoutY="397.0" text="Billing Information">
                      <font>
                         <Font name="System Bold Italic" size="30.0" />
@@ -69,7 +69,6 @@
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="gender" layoutX="253.0" layoutY="224.0" prefHeight="25.0" prefWidth="245.0" />
                   <Label layoutX="147.0" layoutY="442.0" prefHeight="36.0" prefWidth="120.0" text="Address:">
                      <font>
                         <Font name="System Bold" size="25.0" />
@@ -93,7 +92,6 @@
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="state" layoutX="253.0" layoutY="556.0" prefHeight="25.0" prefWidth="245.0" />
                   <Text layoutX="114.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Information">
                      <font>
                         <Font size="51.0" />
@@ -109,7 +107,7 @@
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="height" layoutX="256.0" layoutY="796.0" prefHeight="25.0" prefWidth="245.0" />
+                  <TextField fx:id="feet" layoutX="256.0" layoutY="796.0" prefHeight="25.0" prefWidth="113.0" />
                   <Label layoutX="158.0" layoutY="826.0" prefHeight="36.0" prefWidth="112.0" text="Weight:">
                      <font>
                         <Font name="System Bold" size="25.0" />
@@ -121,7 +119,7 @@
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="bloodPressure" layoutX="258.0" layoutY="868.0" prefHeight="25.0" prefWidth="245.0" />
+                  <TextField fx:id="topBloodPressure" layoutX="258.0" layoutY="868.0" prefHeight="25.0" prefWidth="112.0" />
                   <Label layoutX="119.0" layoutY="898.0" prefHeight="36.0" prefWidth="153.0" text="Heart Rate:">
                      <font>
                         <Font name="System Bold" size="25.0" />
@@ -133,7 +131,7 @@
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="bmi" layoutX="258.0" layoutY="940.0" prefHeight="25.0" prefWidth="245.0" />
+                  <TextField fx:id="bmi" editable="false" layoutX="258.0" layoutY="940.0" prefHeight="25.0" prefWidth="245.0" />
                   <Label layoutX="105.0" layoutY="967.0" prefHeight="36.0" prefWidth="167.0" text="Disability(s)">
                      <font>
                         <Font name="System Bold" size="25.0" />
@@ -165,6 +163,26 @@
                   </Label>
                   <TextField fx:id="birthday" layoutX="253.0" layoutY="291.0" prefHeight="25.0" prefWidth="245.0" />
                   <TextArea fx:id="disabilities" layoutX="258.0" layoutY="977.0" prefHeight="51.0" prefWidth="245.0" />
+                  <Label layoutX="370.0" layoutY="793.0" text="ft.">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="inch" layoutX="389.0" layoutY="797.0" prefHeight="25.0" prefWidth="92.0" />
+                  <Label layoutX="482.0" layoutY="793.0" text="in.">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="375.0" layoutY="862.0" text="/">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="bottomBloodPressure" layoutX="389.0" layoutY="868.0" prefHeight="25.0" prefWidth="113.0" />
+                  <ComboBox fx:id="gender" disable="true" layoutX="253.0" layoutY="224.0" prefHeight="25.0" prefWidth="246.0" />
+                  <ComboBox fx:id="state" layoutX="253.0" layoutY="556.0" prefHeight="25.0" prefWidth="246.0" />
+                  <ComboBox fx:id="race" layoutX="253.0" layoutY="258.0" prefHeight="25.0" prefWidth="246.0" />
                </children>
             </AnchorPane>
          </content>

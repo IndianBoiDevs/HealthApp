@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="932.0" prefWidth="1589.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SearchView">
    <children>
-      <TableView fx:id="patientTable" layoutX="14.0" layoutY="91.0" onMouseClicked="#selectionMade" prefHeight="827.0" prefWidth="1301.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="274.0" AnchorPane.topAnchor="91.0">
+      <TableView fx:id="patientTable" layoutX="13.0" layoutY="91.0" onMouseClicked="#selectionMade" prefHeight="827.0" prefWidth="1563.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="91.0">
         <columns>
           <TableColumn fx:id="firstName" prefWidth="192.0" text="First Name" />
           <TableColumn fx:id="lastName" prefWidth="210.0" text="Last Name" />
@@ -23,8 +23,8 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <TextField fx:id="search" layoutX="1132.0" layoutY="30.0" onKeyPressed="#enterPressed" promptText="Search" AnchorPane.rightAnchor="308.0" AnchorPane.topAnchor="30.0" />
-      <Button fx:id="finderButton" layoutX="1281.0" layoutY="30.0" mnemonicParsing="false" onAction="#findPerson" AnchorPane.rightAnchor="274.0" AnchorPane.topAnchor="30.0">
+      <TextField fx:id="search" layoutX="1392.0" layoutY="42.0" onKeyPressed="#enterPressed" promptText="Search" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="42.0" />
+      <Button fx:id="finderButton" layoutX="1541.0" layoutY="42.0" mnemonicParsing="false" onAction="#findPerson" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="42.0">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                <image>

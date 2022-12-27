@@ -123,6 +123,20 @@ public class LoginTool {
         }
     }
 
+    public int updateDatabase(String query){
+        try {
+            //create a statement
+            Statement myStatement = connection.createStatement();
+
+            int resultSet = myStatement.executeUpdate(query);
+            return resultSet;
+        }
+        catch (SQLException e) {
+            System.out.println("[Error]: Unable to connect to the database!");
+            return 0;
+        }
+    }
+
     public int addUser(String stmt){
         try {
             //create a statement
