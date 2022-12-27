@@ -391,7 +391,7 @@ public class PatientPopUpController implements Initializable {
             try{
 
                 Integer.parseInt(feet.getText());
-                Integer.parseInt(inch.getText());
+                Double.parseDouble(inch.getText());
 
                 if(current.getHeight() == null){
                     if(stuffToUpdate.length() == 0) {
@@ -636,6 +636,7 @@ public class PatientPopUpController implements Initializable {
                 //fill in feet and inches
                 String height = r.getString("height");
                 if(height != null) {
+
                     //split the String given
                     ArrayList<String> entry = new ArrayList<>(Arrays.asList(height.split("-")));
 
