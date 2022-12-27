@@ -121,10 +121,10 @@ public class SearchView implements Initializable {
                 refreshList(r);
 
             } catch (Exception e) {
-                System.out.println("[Debug]: User would like to look up a user via name");
                 ArrayList<String> input = new ArrayList<>(Arrays.asList(name.split(",")));
 
                 if (input.size() == 1) {
+                    System.out.println("[Debug]: User would like to look up a user via name");
                     //check to see if the user exists with that first name
                     ResultSet r = sqlTool.runQuery("SELECT * FROM login.information\n" +
                             "where firstName = '" + name + "'"
@@ -132,12 +132,27 @@ public class SearchView implements Initializable {
                             "LIMIT 100;");
                     refreshList(r);
                 } else {
-                    //check to see if the user exists with that first and last name
-                    ResultSet r = sqlTool.runQuery("SELECT * FROM login.information\n" +
-                            "where firstName = '" + input.get(1) + "'"
-                            + "AND lastName = '" + input.get(0) + "'"
-                            + "LIMIT 100;");
-                    refreshList(r);
+
+                    try{
+                        System.out.println("[Debug]: User would like to look up a user via insurance");
+                        //check if they are searching via insurance number
+                        Integer.parseInt(input.get(1));
+                        ResultSet r = sqlTool.runQuery("SELECT * FROM login.information"
+                                        +  " where insurance = '" + input.get(0) + "'"
+                                        + " AND insuranceID = '" + input.get(1)  + "'"
+                                        + " LIMIT 100;");
+                        refreshList(r);
+
+                    }
+                    catch (Exception f) {
+                        System.out.println("[Debug]: User would like to look up a user via first and last name");
+                        //check to see if the user exists with that first and last name
+                        ResultSet r = sqlTool.runQuery("SELECT * FROM login.information\n" +
+                                "where firstName = '" + input.get(1) + "'"
+                                + "AND lastName = '" + input.get(0) + "'"
+                                + "LIMIT 100;");
+                        refreshList(r);
+                    }
                 }
             }
         }
