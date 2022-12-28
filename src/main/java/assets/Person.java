@@ -23,6 +23,13 @@ public class Person {
     String disability;
     String bmi;
 
+    public Person() {
+        firstName = null;
+        lastName = null;
+        dateOfBirth = null;
+        insurance = null;
+        insuranceId = null;
+    }
 
     public Person(String fname,String lName, String dob, String in, String id){
         firstName = fname;
