@@ -1,9 +1,6 @@
 package controllers;
 
-import assets.LoginTool;
-import assets.PatientPopUp;
-import assets.Person;
-import assets.PersonHelper;
+import assets.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +13,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -50,16 +48,25 @@ public class SearchView implements Initializable {
     private Label message;
     @FXML
     private Button finderButton;
+    private Button add;
 
     private ObservableList<Person> listOfPatients = FXCollections.observableArrayList();
 
     private LoginTool sqlTool;
+
+    private ResultSet searchQuery;
 
     @FXML
     void findPerson(ActionEvent event) {
         String getMeThis = search.getText();
         System.out.println("[Debug]: Give me: " + getMeThis);
         findPersonFromDB(getMeThis);
+    }
+
+    @FXML
+    public void addButtonClicked(ActionEvent event) throws IOException {
+        System.out.println("[Debug]: Add Pressed");
+        AddPatientPopUp.display();
     }
 
     @FXML
@@ -87,11 +94,13 @@ public class SearchView implements Initializable {
                 PatientPopUp.display();
 
                 //run the query to get the result back
-                ResultSet rs = sqlTool.runQuery("SELECT * FROM login.information " +
+                searchQuery = sqlTool.runQuery("SELECT * FROM login.information " +
                         "LIMIT 100;");
 
                 //refresh the list
-                refreshList(rs);
+                refreshList(searchQuery);
+
+
             }
         }
     }
@@ -101,10 +110,10 @@ public class SearchView implements Initializable {
         //this is to go back to all the people
         if(name.length() == 0){
             //run the query to get the resultset back
-            ResultSet rs = sqlTool.runQuery("SELECT * FROM login.information " +
+            searchQuery = sqlTool.runQuery("SELECT * FROM login.information " +
                     "LIMIT 100;");
             //refresh the list
-            refreshList(rs);
+            refreshList(searchQuery);
         }
         //if the person doesn't want to go back and they instead want to see the people
         else {
@@ -114,11 +123,11 @@ public class SearchView implements Initializable {
                 System.out.println("[Debug]: User would like to look up a user via DOB");
 
                 //check to see if the user exists with that first name
-                ResultSet r = sqlTool.runQuery("SELECT * FROM login.information\n" +
+                searchQuery = sqlTool.runQuery("SELECT * FROM login.information\n" +
                         "where birthday = '" + name + "'"
                         +
                         "LIMIT 100;");
-                refreshList(r);
+                refreshList(searchQuery);
 
             } catch (Exception e) {
                 ArrayList<String> input = new ArrayList<>(Arrays.asList(name.split(",")));
@@ -126,32 +135,32 @@ public class SearchView implements Initializable {
                 if (input.size() == 1) {
                     System.out.println("[Debug]: User would like to look up a user via name");
                     //check to see if the user exists with that first name
-                    ResultSet r = sqlTool.runQuery("SELECT * FROM login.information\n" +
+                    searchQuery = sqlTool.runQuery("SELECT * FROM login.information\n" +
                             "where firstName = '" + name + "'"
                             +
                             "LIMIT 100;");
-                    refreshList(r);
+                    refreshList(searchQuery);
                 } else {
 
                     try{
                         System.out.println("[Debug]: User would like to look up a user via insurance");
                         //check if they are searching via insurance number
                         Integer.parseInt(input.get(1));
-                        ResultSet r = sqlTool.runQuery("SELECT * FROM login.information"
+                        searchQuery = sqlTool.runQuery("SELECT * FROM login.information"
                                         +  " where insurance = '" + input.get(0) + "'"
                                         + " AND insuranceID = '" + input.get(1)  + "'"
                                         + " LIMIT 100;");
-                        refreshList(r);
+                        refreshList(searchQuery);
 
                     }
                     catch (Exception f) {
                         System.out.println("[Debug]: User would like to look up a user via first and last name");
                         //check to see if the user exists with that first and last name
-                        ResultSet r = sqlTool.runQuery("SELECT * FROM login.information\n" +
+                        searchQuery = sqlTool.runQuery("SELECT * FROM login.information\n" +
                                 "where firstName = '" + input.get(1) + "'"
                                 + "AND lastName = '" + input.get(0) + "'"
                                 + "LIMIT 100;");
-                        refreshList(r);
+                        refreshList(searchQuery);
                     }
                 }
             }
@@ -200,11 +209,11 @@ public class SearchView implements Initializable {
         insuranceId.setCellValueFactory(new PropertyValueFactory<Person,String>("insuranceId"));
 
         //run the query to get the resultset back
-        ResultSet rs = sqlTool.runQuery("SELECT * FROM login.information " +
+        searchQuery = sqlTool.runQuery("SELECT * FROM login.information " +
                 "LIMIT 100;");
 
         //refresh the list
-        refreshList(rs);
+        refreshList(searchQuery);
     }
 
 

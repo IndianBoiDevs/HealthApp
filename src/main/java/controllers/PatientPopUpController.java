@@ -162,11 +162,11 @@ public class PatientPopUpController implements Initializable {
             if(lName.length() != 0){
                 if(!lName.equals(current.getLastName())){
                     if(stuffToUpdate.length() == 0) {
-                        stuffToUpdate = stuffToUpdate + "'`lastName` = '" + lastName.getText() +"'";
+                        stuffToUpdate = stuffToUpdate + " `lastName` = '" + lastName.getText() +"'";
 
                     }
                     else{
-                        stuffToUpdate = stuffToUpdate  +"', `lastName` = '" + lastName.getText() +"'";
+                        stuffToUpdate = stuffToUpdate  +" , `lastName` = '" + lastName.getText() +"'";
                     }
                     System.out.println("[Debug]: Staff has updated lastName! ");
                 }
@@ -193,8 +193,6 @@ public class PatientPopUpController implements Initializable {
         if(num != null){
             if(num.length() == 10){
                 try{
-                    Integer.parseInt(num);
-
                     if(!num.equals(current.getPhone())){
                         if(stuffToUpdate.length() == 0) {
                             stuffToUpdate = stuffToUpdate +  " `phone` = '" + phoneNumber.getText() +"'";
