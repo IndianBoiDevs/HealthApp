@@ -91,7 +91,7 @@ public class PatientPopUpController implements Initializable {
     private Person current;
 
     private LoginTool tool;
-    ObservableList<String> races = FXCollections.observableArrayList("White", "African American", "Asian", "Middle-Easter", "European", "Native American", "Pacific Islander", "Other");
+    ObservableList<String> races = FXCollections.observableArrayList("White", "African American", "Asian", "Middle-Eastern", "European", "Native American", "Pacific Islander", "Other");
     ObservableList<String> states = FXCollections.observableArrayList("AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI"
             ,"ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT"
             ,"NE","NV","NH","NJ","NM","NY","NC","ND","OH"

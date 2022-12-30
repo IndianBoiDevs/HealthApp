@@ -118,7 +118,6 @@ public class LoginTool {
         }
         catch (SQLException e) {
             System.out.println("[Error]: Unable to connect to the database!");
-
             return null;
         }
     }
@@ -133,6 +132,7 @@ public class LoginTool {
         }
         catch (SQLException e) {
             System.out.println("[Error]: Unable to connect to the database!");
+            e.printStackTrace();
             return 0;
         }
     }
@@ -146,6 +146,7 @@ public class LoginTool {
             return resultSet;
         }
         catch (SQLException e) {
+            e.printStackTrace();
             System.out.println("[Error]: Unable to add the user to the database due to connection!");
             return 0;
         }

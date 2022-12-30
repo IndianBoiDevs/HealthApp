@@ -67,6 +67,12 @@ public class SearchView implements Initializable {
     public void addButtonClicked(ActionEvent event) throws IOException {
         System.out.println("[Debug]: Add Pressed");
         AddPatientPopUp.display();
+        //run the query to get the result back
+        searchQuery = sqlTool.runQuery("SELECT * FROM login.information " +
+                "LIMIT 100;");
+
+        //refresh the list
+        refreshList(searchQuery);
     }
 
     @FXML
