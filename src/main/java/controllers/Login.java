@@ -10,8 +10,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
+
 
 
 import java.io.IOException;
@@ -59,6 +61,22 @@ public class Login implements Initializable {
         }
     }
 
+    public void nextFieldRequired(KeyEvent k){
+        //if the user clicks enter while in username
+        if( k.getCode() == KeyCode.ENTER ) {
+            //set focus to password
+            password.requestFocus();
+        }
+    }
+
+    public void enterPressed(KeyEvent k) throws IOException {
+        //if the user button that they have pressed is the enter key
+        if( k.getCode() == KeyCode.ENTER ) {
+            //trigger the credntial set
+            checkCredentials();
+        }
+    }
+
     private void checkCredentials() throws IOException {
 
         //extract the userName and password from the respective controls
@@ -70,11 +88,15 @@ public class Login implements Initializable {
             // if the username isn't provide
             warning.setTextFill(Color.color(1, 0, 0));
             warning.setText("Please provide a username!");
+            //set focus to username
+            username.requestFocus();
         }
         else if(pass.length() ==0){
             // if the password isn't provide
             warning.setTextFill(Color.color(1, 0, 0));
             warning.setText("Please provide a password!");
+            //set focus to password
+            password.requestFocus();
         }
         else{
 
@@ -113,6 +135,8 @@ public class Login implements Initializable {
                 // if the credentials don't match
                 warning.setTextFill(Color.color(1, 0, 0));
                 warning.setText("Please provide correct credentials!");
+                //set focus
+                username.requestFocus();
             }
         }
 

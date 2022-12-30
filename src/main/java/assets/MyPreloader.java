@@ -2,6 +2,7 @@ package assets;
 
 import javafx.application.Preloader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage; //what is this supposed to be
 import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +33,12 @@ public class MyPreloader extends Preloader {
     public void start(Stage primaryStage) throws Exception {
 
         this.preloaderStage = primaryStage;
+
+        //Create an image object
+        Image icon = new Image("icon.png");
+
+        //set the icon as the icon
+        preloaderStage.getIcons().add(icon);
 
         //Set preloader scene and show stage
         preloaderStage.setScene(scene);
