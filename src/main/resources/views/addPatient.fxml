@@ -18,7 +18,7 @@
    <children>
       <ScrollPane layoutY="-2.0" prefHeight="606.0" prefWidth="600.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
          <content>
-          <AnchorPane prefHeight="1219.0" prefWidth="608.0" style="-fx-background-color: lightgray;">
+          <AnchorPane prefHeight="1301.0" prefWidth="608.0" style="-fx-background-color: lightgray;">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="100.0" layoutX="-2.0" stroke="WHITE" strokeType="INSIDE" width="610.0" />
                   <ImageView fitHeight="69.0" fitWidth="94.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -31,7 +31,7 @@
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <Label layoutX="114.0" layoutY="292.0" text="Personal Information:">
+                  <Label layoutX="114.0" layoutY="292.0" text="Personal Information">
                      <font>
                         <Font name="System Bold Italic" size="30.0" />
                      </font>
@@ -98,7 +98,7 @@
                         <Font size="51.0" />
                      </font>
                   </Text>
-                  <Label layoutX="114.0" layoutY="882.0" text="Health Information">
+                  <Label layoutX="114.0" layoutY="888.0" text="Health Information">
                      <font>
                         <Font name="System Bold Italic" size="30.0" />
                      </font>
@@ -127,18 +127,12 @@
                      </font>
                   </Label>
                   <TextField fx:id="heartRate" layoutX="258.0" layoutY="1047.0" prefHeight="25.0" prefWidth="245.0" />
-                  <Label layoutX="193.0" layoutY="1077.0" prefHeight="36.0" prefWidth="79.0" text="BMI:">
+                  <Label layoutX="105.0" layoutY="1075.0" prefHeight="36.0" prefWidth="167.0" text="Disability(s)">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="bmi" editable="false" layoutX="258.0" layoutY="1083.0" prefHeight="25.0" prefWidth="245.0" />
-                  <Label layoutX="105.0" layoutY="1110.0" prefHeight="36.0" prefWidth="167.0" text="Disability(s)">
-                     <font>
-                        <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="114.0" layoutY="763.0" text="Insurance Information">
+                  <Label layoutX="114.0" layoutY="765.0" text="Insurance Information">
                      <font>
                         <Font name="System Bold Italic" size="30.0" />
                      </font>
@@ -155,15 +149,15 @@
                      </font>
                   </Label>
                   <TextField fx:id="id" layoutX="253.0" layoutY="850.0" prefHeight="25.0" prefWidth="245.0" />
-                  <Button fx:id="saveButton" layoutX="239.0" layoutY="1182.0" mnemonicParsing="false" onAction="#savePressed" text="Save" />
-                  <Button fx:id="cancelButton" layoutX="307.0" layoutY="1182.0" mnemonicParsing="false" onAction="#cancelPressed" text="Cancel" />
+                  <Button fx:id="saveButton" layoutX="239.0" layoutY="1242.0" mnemonicParsing="false" onAction="#savePressed" text="Save" />
+                  <Button fx:id="cancelButton" layoutX="307.0" layoutY="1242.0" mnemonicParsing="false" onAction="#cancelPressed" text="Cancel" />
                   <Label layoutX="135.0" layoutY="465.0" prefHeight="36.0" prefWidth="115.0" text="Birthday:">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
                   <TextField fx:id="birthday" layoutX="253.0" layoutY="471.0" prefHeight="25.0" prefWidth="245.0" />
-                  <TextArea fx:id="disabilities" layoutX="258.0" layoutY="1120.0" prefHeight="51.0" prefWidth="245.0" />
+                  <TextArea fx:id="disabilities" layoutX="258.0" layoutY="1085.0" prefHeight="51.0" prefWidth="245.0" />
                   <Label layoutX="370.0" layoutY="936.0" text="ft.">
                      <font>
                         <Font size="20.0" />
@@ -181,10 +175,10 @@
                      </font>
                   </Label>
                   <TextField fx:id="bottomBloodPressure" layoutX="389.0" layoutY="1011.0" prefHeight="25.0" prefWidth="113.0" />
-                  <ComboBox fx:id="gender" disable="true" layoutX="253.0" layoutY="404.0" prefHeight="25.0" prefWidth="246.0" />
+                  <ComboBox fx:id="gender" layoutX="253.0" layoutY="404.0" prefHeight="25.0" prefWidth="246.0" />
                   <ComboBox fx:id="state" layoutX="253.0" layoutY="733.0" prefHeight="25.0" prefWidth="246.0" />
                   <ComboBox fx:id="race" layoutX="253.0" layoutY="438.0" prefHeight="25.0" prefWidth="246.0" />
-                  <Label layoutX="114.0" layoutY="118.0" text="Credentials:">
+                  <Label layoutX="114.0" layoutY="118.0" text="Credentials">
                      <font>
                         <Font name="System Bold Italic" size="30.0" />
                      </font>
@@ -206,14 +200,19 @@
                      </font>
                   </Label>
                   <PasswordField fx:id="password" layoutX="253.0" layoutY="198.0" prefHeight="25.0" prefWidth="245.0" />
-                  <PasswordField fx:id="password" layoutX="253.0" layoutY="233.0" prefHeight="25.0" prefWidth="245.0" />
+                  <PasswordField fx:id="confirmPassword" layoutX="253.0" layoutY="233.0" prefHeight="25.0" prefWidth="245.0" />
                   <Label layoutX="123.0" layoutY="258.0" prefHeight="36.0" prefWidth="255.0" text="Email:">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
                   <TextField fx:id="email" layoutX="253.0" layoutY="264.0" prefHeight="25.0" prefWidth="245.0" />
-                  <Text layoutX="398.0" layoutY="916.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Optional)" />
+                  <Text layoutX="398.0" layoutY="922.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Optional)" />
+                  <TextArea fx:id="responseBox" editable="false" layoutX="113.0" layoutY="1153.0" prefHeight="70.0" prefWidth="393.0" text="Please fill form" />
+                  <Text layoutX="435.0" layoutY="801.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Required)" />
+                  <Text layoutX="395.0" layoutY="609.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Required)" />
+                  <Text layoutX="435.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Required)" />
+                  <Text layoutX="287.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Required)" />
                </children>
             </AnchorPane>
          </content>
