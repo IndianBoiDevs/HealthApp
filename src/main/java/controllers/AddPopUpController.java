@@ -1,8 +1,6 @@
 package controllers;
 
-import assets.AddPatientPopUp;
-import assets.LoginTool;
-import assets.Message;
+import assets.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,6 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -112,40 +111,49 @@ public class AddPopUpController implements Initializable {
     ObservableList<String> genders = FXCollections.observableArrayList("Male", "Female");
 
     @FXML
-    void cancelPressed(ActionEvent event) {
-        AddPatientPopUp.close();
+    void cancelPressed(ActionEvent event) throws IOException {
+
+        //display the cancel popup
+        CancelPopUp.display();
+
+        if(CancelPopUp.choice) {
+            AddPatientPopUp.close();
+        }
     }
 
     @FXML
-    void savePressed(ActionEvent event) {
+    void savePressed(ActionEvent event) throws IOException {
         if(allInformationProvided() == true){
 
-            System.out.println("[Debug]: User has selected to submit data to be inserted into the database");
+            SavePopUp.display();
 
-            //add the new user to the credentials table
-            int credentialAdded = tool.addUser("INSERT INTO `login`.`credentials` (`username`, `password`, `email`, `type`) " +
-                    "VALUES ('" + userName.getText().toString() + "', '"+password.getText().toString()+"', '"
-                    + email.getText().toString() +"', '2');");
+            if(SavePopUp.choice) {
+                System.out.println("[Debug]: User has selected to submit data to be inserted into the database");
 
-            //add user to the information table
-            int information = tool.addUser("INSERT INTO `login`.`information` (`birthday`, `gender`, `firstName`, `lastName`, `address`, `phone`, `insurance`" +
-                    ", `insuranceID`, `username`, `city`, `state`, `zipcode` , `race` , `occupation`) VALUES ('"+ birthday.getText().toString() +"', '"+ (String) gender.getValue() +"', '"+ firstName.getText().toString() +"'" +
-                    ", '"+ lastName.getText().toString() +"', '"+ address.getText().toString()+"', '"+ phoneNumber.getText().toString() +"', '"+ insurance.getText().toString()+"', '"+ id.getText().toString()
-                    +"', '"+ userName.getText().toString()+"', '"+ city.getText().toString()+"', '"+  (String) state.getValue() +"', '"+  zipCode.getText().toString() +"', '" +  (String) race.getValue() + "', '"+
-                    job.getText().toString() + "');");
+                //add the new user to the credentials table
+                int credentialAdded = tool.addUser("INSERT INTO `login`.`credentials` (`username`, `password`, `email`, `type`) " +
+                        "VALUES ('" + userName.getText().toString() + "', '" + password.getText().toString() + "', '"
+                        + email.getText().toString() + "', '2');");
 
-            //if the user filled out optional fields
-            checkOptionalFields(userName.getText().toString());
+                //add user to the information table
+                int information = tool.addUser("INSERT INTO `login`.`information` (`birthday`, `gender`, `firstName`, `lastName`, `address`, `phone`, `insurance`" +
+                        ", `insuranceID`, `username`, `city`, `state`, `zipcode` , `race` , `occupation`) VALUES ('" + birthday.getText().toString() + "', '" + (String) gender.getValue() + "', '" + firstName.getText().toString() + "'" +
+                        ", '" + lastName.getText().toString() + "', '" + address.getText().toString() + "', '" + phoneNumber.getText().toString() + "', '" + insurance.getText().toString() + "', '" + id.getText().toString()
+                        + "', '" + userName.getText().toString() + "', '" + city.getText().toString() + "', '" + (String) state.getValue() + "', '" + zipCode.getText().toString() + "', '" + (String) race.getValue() + "', '" +
+                        job.getText().toString() + "');");
 
-            if(credentialAdded!= 0) {
-                System.out.println("Patient Registered successfully");
+                //if the user filled out optional fields
+                checkOptionalFields(userName.getText().toString());
 
+                if (credentialAdded != 0) {
+                    System.out.println("Patient Registered successfully");
+
+                } else {
+                    System.out.println("Try Again: Patient not Registered");
+                }
+
+                AddPatientPopUp.close();
             }
-            else{
-                System.out.println("Try Again: Patient not Registered");
-            }
-
-            AddPatientPopUp.close();
         }
     }
 

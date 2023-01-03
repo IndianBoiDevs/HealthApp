@@ -36,6 +36,7 @@ public class LoginTool {
             } catch (Exception e) {
                 System.out.println("[Error]: unable to connect to the database!");
                 offlineMode = true;
+                e.printStackTrace();
             }
         }
 
