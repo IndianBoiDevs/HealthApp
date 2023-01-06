@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth=
+              "294.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/login/login.png" />
+         </image>
+      </ImageView>
+      <TextArea editable="false" layoutX="300.0" layoutY="14.0" prefHeight="375.0" prefWidth="292.0" text="Welcome to the Health App,&#10;&#10;This program was a project started in December &#10;of 2022 and continues to be developed.  The &#10;program currently has two developers, but we &#10;wish to expand our horizons through expanding&#10;our team and partnering with larger organizations.&#10;We wish to keep our program open source and &#10;this code can be seen through the Github &#10;provided below.We want to thank all our users for &#10;using this product and providing valuabel input.&#10;&#10;Current Version: Version 3.0.0&#10;Date: 01/06/2023&#10;&#10;Github: &#10;https://github.com/IndianBoiDevs/HealthApp&#10;&#10;" />
+   </children>
+</AnchorPane>

@@ -1,31 +1,60 @@
 package controllers;
 
+import assets.AboutPopup;
 import assets.StageManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.fxml.Initializable;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdminSpace implements Initializable {
-    @FXML
-    private Button logOut;
-    @FXML
-    private Button home;
-    @FXML
-    private Button search;
+
     @FXML
     private Button about;
+
     @FXML
-    private Button settings;
+    private MenuItem aboutdropdown;
+
+    @FXML
+    private MenuItem demote;
+
+    @FXML
+    private Button home;
+
+    @FXML
+    private MenuItem issue;
+
+    @FXML
+    private Button logOut;
+
+    @FXML
+    private MenuItem logoutdropdown;
+
     @FXML
     private BorderPane mainScreen;
+
+    @FXML
+    private MenuItem promote;
+
+    @FXML
+    private MenuItem close;
+
+    @FXML
+    private Button search;
+
+    @FXML
+    private Button settings;
 
     public void logOutButtonPressed(ActionEvent event) throws IOException {
         logOut.setStyle("-fx-background-color: GREEN");
@@ -34,7 +63,7 @@ public class AdminSpace implements Initializable {
 
     }
 
-    public void homePressed(ActionEvent event){
+    public void homePressed(ActionEvent event) {
         //set home to Green
         home.setStyle("-fx-background-color: GREEN");
         //set everything else to red
@@ -54,7 +83,7 @@ public class AdminSpace implements Initializable {
         }
     }
 
-    public void settingsPressed(ActionEvent event){
+    public void settingsPressed(ActionEvent event) {
         //set settings to Green
         settings.setStyle("-fx-background-color: GREEN");
         //set everything else to red
@@ -73,7 +102,7 @@ public class AdminSpace implements Initializable {
         }
     }
 
-    public void aboutPressed(ActionEvent event){
+    public void aboutPressed(ActionEvent event) {
         //set about to Green
         about.setStyle("-fx-background-color: GREEN");
         //set everything else to red
@@ -94,7 +123,7 @@ public class AdminSpace implements Initializable {
     }
 
 
-    public void searchPressed(ActionEvent event){
+    public void searchPressed(ActionEvent event) {
         //set search to Green
         search.setStyle("-fx-background-color: GREEN");
         //set everything else to red
@@ -113,6 +142,39 @@ public class AdminSpace implements Initializable {
             System.exit(1);
         }
     }
+    @FXML
+    void aboutClicked(ActionEvent e) throws IOException {
+        AboutPopup.display();
+    }
+
+    @FXML
+    void closeProgram(ActionEvent event){
+        System.exit(0);
+    }
+
+    @FXML
+    void menuLogOutButton(ActionEvent event) {
+        StageManager manager = new StageManager();
+        try {
+            manager.changeScene("login//login.fxml");
+        } catch (IOException e) {
+            //throw new RuntimeException(e);
+            System.out.println("Error: Unable to logout");
+        }
+
+    }
+
+    @FXML
+    void reportIssues(ActionEvent event) {
+        Desktop d = Desktop.getDesktop();
+        try {
+            d.browse(new URI("https://github.com/IndianBoiDevs/HealthApp/issues/new"));
+        } catch (IOException | URISyntaxException e2) {
+            e2.printStackTrace();
+        }
+
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
