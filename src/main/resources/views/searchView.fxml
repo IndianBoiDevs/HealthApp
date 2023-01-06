@@ -40,5 +40,7 @@
             <Image url="@icons/add.png" />
          </image>
       </ImageView>
+      <Button fx:id="promote" layoutX="635.0" layoutY="41.0" mnemonicParsing="false" onAction="#promoteButtonClicked" prefHeight="29.0" prefWidth="149.0" text="Promote Account" />
+      <Button fx:id="demote" layoutX="792.0" layoutY="41.0" mnemonicParsing="false" onAction="#demoteButtonClicked" prefHeight="29.0" prefWidth="149.0" text="Demote Account" />
    </children>
 </AnchorPane>
