@@ -40,7 +40,21 @@
             <Image url="@icons/add.png" />
          </image>
       </ImageView>
-      <Button fx:id="promote" layoutX="635.0" layoutY="41.0" mnemonicParsing="false" onAction="#promoteButtonClicked" prefHeight="29.0" prefWidth="149.0" text="Promote Account" />
-      <Button fx:id="demote" layoutX="792.0" layoutY="41.0" mnemonicParsing="false" onAction="#demoteButtonClicked" prefHeight="29.0" prefWidth="149.0" text="Demote Account" />
+      <Button fx:id="promote" layoutX="635.0" layoutY="41.0" mnemonicParsing="false" onAction="#promoteButtonClicked" prefHeight="29.0" prefWidth="149.0" text="Promote Account">
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/promote.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="demote" layoutX="792.0" layoutY="41.0" mnemonicParsing="false" onAction="#demoteButtonClicked" prefHeight="29.0" prefWidth="149.0" text="Demote Account">
+         <graphic>
+            <ImageView fitHeight="18.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/demote.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
    </children>
 </AnchorPane>
