@@ -208,8 +208,8 @@ public class SearchView implements Initializable {
     }
 
     @FXML
-    void demoteButtonClicked(ActionEvent event) {
-
+    void demoteButtonClicked(ActionEvent event) throws IOException {
+        DemotePopUp.display();
     }
     @FXML
     void promoteButtonClicked(ActionEvent event) throws IOException {

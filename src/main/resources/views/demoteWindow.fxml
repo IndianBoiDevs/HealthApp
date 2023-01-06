@@ -7,9 +7,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PromoteWindow">
+<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DemoteWindow">
    <children>
-      <Text fill="#c92d2d" layoutX="59.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the Username of the user you wish to promote" textAlignment="CENTER" wrappingWidth="496.43359375">
+      <Text fill="#c92d2d" layoutX="59.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the Username of the user you wish to demote" textAlignment="CENTER" wrappingWidth="496.43359375">
          <font>
             <Font name="Arial Bold" size="24.0" />
          </font>
@@ -20,7 +20,7 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="promoteBt" layoutX="170.0" layoutY="187.0" mnemonicParsing="false" onAction="#promotePressed" prefHeight="66.0" prefWidth="106.0" text="Promote">
+      <Button fx:id="demoteBt" layoutX="170.0" layoutY="187.0" mnemonicParsing="false" onAction="#demotePressed" prefHeight="66.0" prefWidth="106.0" text="Demote">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>

@@ -16,7 +16,7 @@ public class ConfirmPopUp {
 
     public static String name;
 
-    public static void display(String n) throws IOException {
+    public static void display(String n,boolean whichDialog) throws IOException {
 
         name = n;
 
@@ -26,15 +26,28 @@ public class ConfirmPopUp {
         //block user interaction with other windows until this windows is taken care of
         stage.initModality(Modality.APPLICATION_MODAL);
 
-        //set the title for the window
-        stage.setTitle("Confirm Promotion");
+        if(whichDialog == true) {
+            //set the title for the window
+            stage.setTitle("Confirm Promotion");
+        }
+        else{
+            //set the title for the window
+            stage.setTitle("Confirm Demotion");
+        }
 
         //set the minimum width
         stage.setMinWidth(300);
 
         //this is the Parent created vy fxml loader
         ConfirmPopUp p = new ConfirmPopUp();
-        Parent root = p.getScreen();
+        Parent root = null;
+
+        if(whichDialog = true) {
+            root = p.getPromoScreen();
+        }
+        else{
+            root = p.getDemoScreen();
+        }
 
         //Adding the scene to Stage
         stage.setScene(new Scene(root,500,150));
@@ -55,10 +68,15 @@ public class ConfirmPopUp {
         stage.close();
     }
 
-    private Parent getScreen() throws IOException {
+    private Parent getPromoScreen() throws IOException {
         //this is the Parent created vy fxml loader
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views/confirmPromotion.fxml"));
         return root;
+    }
 
+    private Parent getDemoScreen() throws IOException {
+        //this is the Parent created vy fxml loader
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views/confirmDemotion.fxml"));
+        return root;
     }
 }

@@ -1,6 +1,7 @@
 package controllers;
 
 import assets.ConfirmPopUp;
+import assets.DemotePopUp;
 import assets.LoginTool;
 import assets.PromotePopUp;
 import javafx.event.ActionEvent;
@@ -13,30 +14,29 @@ import javafx.scene.paint.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PromoteWindow {
+public class DemoteWindow {
 
     @FXML
     private Button cancelBt;
 
     @FXML
-    private Button promoteBt;
+    private Button demoteBt;
 
     @FXML
     private Label response;
 
     @FXML
     private TextField username;
-
     private LoginTool tool = new LoginTool();
 
     @FXML
-    void cancelPressed(ActionEvent event)  {
-        PromotePopUp.close();
+    void cancelPressed(ActionEvent event) {
+        DemotePopUp.close();
     }
 
     @FXML
-    void promotePressed(ActionEvent event) throws SQLException {
-        System.out.println("[Debug]: promote pressed");
+    void demotePressed(ActionEvent event) throws SQLException {
+        System.out.println("[Debug]: demote pressed");
 
         if(username.getText().equals("")){
             System.out.println("[Debug]: Give me a username");
@@ -61,22 +61,22 @@ public class PromoteWindow {
             }
             else{
                 if(userType == 0){
-                    response.setText("User with username: " + username.getText() + " cannot be promoted!");
+                    response.setText("User with username: " + username.getText() + " cannot be demoted!");
                     username.setText("");
                     response.setTextFill(Color.RED);
                 }
-                else if(userType == 1){
-                    response.setText("User with username: " + username.getText() + " is already a staff member!");
+                else if(userType == 2){
+                    response.setText("User with username: " + username.getText() + " is already a patient!");
                     username.setText("");
                     response.setTextFill(Color.RED);
                 }
                 else {
                     try {
-                        ConfirmPopUp.display(username.getText(),true);
+                        ConfirmPopUp.display(username.getText(), false);
                         if(ConfirmPopUp.choice == true) {
-                            userType--;
+                            userType++;
                             tool.updateDatabase("UPDATE `login`.`credentials` SET `type` = '" + userType + "' WHERE (`username` = '" + username.getText() + "');");
-                            response.setText("User with username: " + username.getText() + " has been promoted!");
+                            response.setText("User with username: " + username.getText() + " has been demoted!");
                             username.setText("");
                             response.setTextFill(Color.GREEN);
                         }
@@ -87,7 +87,7 @@ public class PromoteWindow {
                         }
                     }
                     catch (Exception e){
-                        response.setText("Unable to promote person try again later!");
+                        response.setText("Unable to demote person try again later!");
                         username.setText("");
                         response.setTextFill(Color.RED);
                     }
