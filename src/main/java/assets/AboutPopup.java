@@ -56,7 +56,7 @@ public class AboutPopup {
 
     private Parent getScreen() throws IOException {
         //this is the Parent created vy fxml loader
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views//aboutPopup.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views/aboutPopup.fxml"));
         return root;
 
     }

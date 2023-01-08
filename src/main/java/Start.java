@@ -21,7 +21,7 @@ public class Start extends Application {
         StageManager s = new StageManager(primaryStage);
 
         //this is the Parent created vy fxml loader
-        Parent root = FXMLLoader.load(getClass().getResource("login//login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("login/login.fxml"));
 
         //setup default screen values
         setUpDisplay(primaryStage);

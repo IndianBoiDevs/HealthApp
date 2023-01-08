@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="150.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ConfirmDemotion">
+   <children>
+      <Button fx:id="yesBt" layoutX="133.0" layoutY="94.0" mnemonicParsing="false" onAction="#yesPressed" prefHeight="43.0" prefWidth="69.0" text="Yes">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="noBt" layoutX="293.0" layoutY="95.0" mnemonicParsing="false" onAction="#noPressed" prefHeight="43.0" prefWidth="69.0" text="No">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="33.0" layoutY="13.0" prefHeight="51.0" prefWidth="437.0" text="Are you sure you want to demote?">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="userHere" layoutX="178.0" layoutY="52.0" prefHeight="43.0" prefWidth="261.0">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

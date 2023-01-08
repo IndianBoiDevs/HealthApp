@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="100.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ConfirmCancel">
+   <children>
+      <Button fx:id="yes" layoutX="64.0" layoutY="65.0" mnemonicParsing="false" onAction="#yesPressed" text="Yes" />
+      <Button fx:id="no" layoutX="142.0" layoutY="65.0" mnemonicParsing="false" onAction="#noPressed" text="No" />
+      <Text layoutX="48.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Are you sure you want to cancel these changes you just made?" textAlignment="CENTER" wrappingWidth="154.568359375" />
+   </children>
+</AnchorPane>

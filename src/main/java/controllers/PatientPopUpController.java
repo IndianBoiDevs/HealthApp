@@ -11,6 +11,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -98,12 +99,17 @@ public class PatientPopUpController implements Initializable {
             ,"OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","AS","GU","MP","PR","VI","DC");
     ObservableList<String> genders = FXCollections.observableArrayList("Male", "Female");
     @FXML
-    void cancelPressed(ActionEvent event) {
-        PatientPopUp.close();
+    void cancelPressed(ActionEvent event) throws IOException {
+        CancelPopUp.display();
+
+        if(CancelPopUp.choice) {
+            System.out.println("[Debug]: User cancelled patient information update!");
+            PatientPopUp.close();
+        }
     }
 
     @FXML
-    void savePressed(ActionEvent event) {
+    void savePressed(ActionEvent event) throws IOException {
         String stuffToUpdate = "";
         System.out.println("==========================================");
         //get all fields and do checks
@@ -514,23 +520,29 @@ public class PatientPopUpController implements Initializable {
 
         System.out.println("==========================================");
 
-        if(stuffToUpdate.length() == 0){
-            System.out.println("[Debug]: Nothing to update!");
-        }
-        else {
-            //run sql update command
-            int updated = tool.updateDatabase("UPDATE `login`.`information` SET " + stuffToUpdate +
-                    "WHERE (`username` = '" + current.getUserName() + "');");
+        //save popup
+        SavePopUp.display();
 
-            if (updated >= 1) {
-                System.out.println("[Debug]: User: " + current.getUserName() + " has been updated");
-            } else {
-                System.out.println("[Error]: User: " + current.getUserName() + " has not been updated");
+        if(SavePopUp.choice) {
+            //update patient's info
+            if(stuffToUpdate.length() == 0){
+                System.out.println("[Debug]: Nothing to update!");
             }
-        }
+            else {
+                //run sql update command
+                int updated = tool.updateDatabase("UPDATE `login`.`information` SET " + stuffToUpdate +
+                        "WHERE (`username` = '" + current.getUserName() + "');");
 
-        //close the dialog
-        PatientPopUp.close();
+                if (updated >= 1) {
+                    System.out.println("[Debug]: User: " + current.getUserName() + " has been updated");
+                } else {
+                    System.out.println("[Error]: User: " + current.getUserName() + " has not been updated");
+                }
+            }
+
+            //close the dialog
+            PatientPopUp.close();
+        }
     }
 
     @Override

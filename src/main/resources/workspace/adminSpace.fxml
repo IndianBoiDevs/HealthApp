@@ -28,9 +28,9 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-                  <MenuItem fx:id="promote" mnemonicParsing="false" text="Promote" />
-                  <MenuItem fx:id="demote" mnemonicParsing="false" text="Demote" />
+              <MenuItem fx:id="addPatientDropDown" mnemonicParsing="false" onAction="#addPressed" text="Add Patient" />
+                  <MenuItem fx:id="promote" mnemonicParsing="false" onAction="#promotePressed" text="Promote" />
+                  <MenuItem fx:id="demote" mnemonicParsing="false" onAction="#demotePressed" text="Demote" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
