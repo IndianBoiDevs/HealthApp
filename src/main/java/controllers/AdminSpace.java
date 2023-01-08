@@ -1,7 +1,6 @@
 package controllers;
 
-import assets.AboutPopup;
-import assets.StageManager;
+import assets.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -56,11 +55,29 @@ public class AdminSpace implements Initializable {
     @FXML
     private Button settings;
 
+    @FXML
+    private MenuItem addPatientDropDown;
+
     public void logOutButtonPressed(ActionEvent event) throws IOException {
         logOut.setStyle("-fx-background-color: GREEN");
         StageManager manager = new StageManager();
         manager.changeScene("login//login.fxml");
 
+    }
+
+    @FXML
+    void addPressed(ActionEvent event) throws IOException {
+        AddPatientPopUp.display();
+    }
+
+    @FXML
+    void demotePressed(ActionEvent event) throws IOException {
+        DemotePopUp.display();
+    }
+
+    @FXML
+    void promotePressed(ActionEvent event) throws IOException {
+        PromotePopUp.display();
     }
 
     public void homePressed(ActionEvent event) {
