@@ -41,7 +41,7 @@ public class CancelPopUp {
         stage.setScene(new Scene(root,250,100));
 
         //Create an image object
-        Image icon = new Image("views//icons//cancel.png");
+        Image icon = new Image("views/icons/cancel.png");
 
         //set the icon as the icon
         stage.getIcons().add(icon);
@@ -58,7 +58,7 @@ public class CancelPopUp {
 
     private Parent getScreen() throws IOException {
         //this is the Parent created vy fxml loader
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views//confirmCancel.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views/confirmCancel.fxml"));
         return root;
 
     }

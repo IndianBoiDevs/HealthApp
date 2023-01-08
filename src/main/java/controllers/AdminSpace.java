@@ -61,7 +61,7 @@ public class AdminSpace implements Initializable {
     public void logOutButtonPressed(ActionEvent event) throws IOException {
         logOut.setStyle("-fx-background-color: GREEN");
         StageManager manager = new StageManager();
-        manager.changeScene("login//login.fxml");
+        manager.changeScene("login/login.fxml");
 
     }
 
@@ -91,7 +91,7 @@ public class AdminSpace implements Initializable {
 
         try {
             //Load the FXML File and store it in a pane
-            Pane view = new FXMLLoader().load(getClass().getClassLoader().getResource("views//homeView.fxml"));
+            Pane view = new FXMLLoader().load(getClass().getClassLoader().getResource("views/homeView.fxml"));
             //center the center to this
             mainScreen.setCenter(view);
         } catch (IOException e) {
@@ -110,7 +110,7 @@ public class AdminSpace implements Initializable {
         search.setStyle("-fx-background-color: RED");
         try {
             //Load the FXML File and store it in a pane
-            Pane view = new FXMLLoader().load(getClass().getClassLoader().getResource("views//settingsView.fxml"));
+            Pane view = new FXMLLoader().load(getClass().getClassLoader().getResource("views/settingsView.fxml"));
             //center the center to this
             mainScreen.setCenter(view);
         } catch (IOException e) {
@@ -130,7 +130,7 @@ public class AdminSpace implements Initializable {
 
         try {
             //Load the FXML File and store it in a pane
-            Pane view = new FXMLLoader().load(getClass().getClassLoader().getResource("views//aboutView.fxml"));
+            Pane view = new FXMLLoader().load(getClass().getClassLoader().getResource("views/aboutView.fxml"));
             //center the center to this
             mainScreen.setCenter(view);
         } catch (IOException e) {
@@ -151,7 +151,7 @@ public class AdminSpace implements Initializable {
 
         try {
             //Load the FXML File and store it in a pane
-            Pane view = new FXMLLoader().load(getClass().getClassLoader().getResource("views//searchView.fxml"));
+            Pane view = new FXMLLoader().load(getClass().getClassLoader().getResource("views/searchView.fxml"));
             //center the center to this
             mainScreen.setCenter(view);
         } catch (IOException e) {
@@ -199,7 +199,7 @@ public class AdminSpace implements Initializable {
 
         try {
             //Load the FXML File and store it in a pane
-            Pane view = new FXMLLoader().load(getClass().getClassLoader().getResource("views//homeView.fxml"));
+            Pane view = new FXMLLoader().load(getClass().getClassLoader().getResource("views/homeView.fxml"));
             //center the center to this
             mainScreen.setCenter(view);
         } catch (IOException e) {

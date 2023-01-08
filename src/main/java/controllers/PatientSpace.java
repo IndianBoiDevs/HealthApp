@@ -40,14 +40,14 @@ public class PatientSpace implements Initializable {
 
     public void logOutButtonPressed(ActionEvent event) throws IOException {
         StageManager manager = new StageManager();
-        manager.changeScene("login//login.fxml");
+        manager.changeScene("login/login.fxml");
 
     }
 
     public void aboutPressed(ActionEvent event){
         try {
             //Load the FXML File and store it in a pane
-            Pane view = new FXMLLoader().load(getClass().getClassLoader().getResource("views//aboutView.fxml"));
+            Pane view = new FXMLLoader().load(getClass().getClassLoader().getResource("views/aboutView.fxml"));
             //center the center to this
             mainScreen.setCenter(view);
         } catch (IOException e) {
@@ -70,7 +70,7 @@ public class PatientSpace implements Initializable {
     void menuLogOutButton(ActionEvent event) {
         StageManager manager = new StageManager();
         try {
-            manager.changeScene("login//login.fxml");
+            manager.changeScene("login/login.fxml");
         } catch (IOException e) {
             //throw new RuntimeException(e);
             System.out.println("Error: Unable to logout");
@@ -95,7 +95,7 @@ public class PatientSpace implements Initializable {
 
         try {
             //Load the FXML File and store it in a pane
-            Pane view = new FXMLLoader().load(getClass().getClassLoader().getResource("views//aboutView.fxml"));
+            Pane view = new FXMLLoader().load(getClass().getClassLoader().getResource("views/aboutView.fxml"));
             //center the center to this
             mainScreen.setCenter(view);
         } catch (IOException e) {

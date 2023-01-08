@@ -40,7 +40,7 @@ public class SavePopUp {
         stage.setScene(new Scene(root,250,100));
 
         //Create an image object
-        Image icon = new Image("views//icons//save.png");
+        Image icon = new Image("views/icons/save.png");
 
         //set the icon as the icon
         stage.getIcons().add(icon);
@@ -57,7 +57,7 @@ public class SavePopUp {
 
     private Parent getScreen() throws IOException {
         //this is the Parent created vy fxml loader
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views//confirmSave.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views/confirmSave.fxml"));
         return root;
 
     }
