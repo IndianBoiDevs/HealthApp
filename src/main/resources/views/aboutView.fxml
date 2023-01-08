@@ -144,19 +144,19 @@
                         <Font name="Arial Black" size="24.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="address" layoutX="425.0" layoutY="731.0" prefHeight="35.0" prefWidth="231.0">
+                  <TextField fx:id="address" editable="false" layoutX="425.0" layoutY="731.0" prefHeight="35.0" prefWidth="231.0">
                      <font>
                         <Font size="18.0" />
                      </font></TextField>
-                  <TextField fx:id="state" layoutX="385.0" layoutY="773.0" prefHeight="34.0" prefWidth="90.0">
+                  <TextField fx:id="state" editable="false" layoutX="385.0" layoutY="773.0" prefHeight="34.0" prefWidth="90.0">
                      <font>
                         <Font size="18.0" />
                      </font></TextField>
-                  <TextField fx:id="city" layoutX="529.0" layoutY="773.0" prefHeight="34.0" prefWidth="127.0">
+                  <TextField fx:id="city" editable="false" layoutX="529.0" layoutY="773.0" prefHeight="34.0" prefWidth="127.0">
                      <font>
                         <Font size="18.0" />
                      </font></TextField>
-                  <TextField fx:id="zip" layoutX="529.0" layoutY="813.0" prefHeight="34.0" prefWidth="127.0">
+                  <TextField fx:id="zip" editable="false" layoutX="529.0" layoutY="813.0" prefHeight="34.0" prefWidth="127.0">
                      <font>
                         <Font size="18.0" />
                      </font></TextField>
@@ -242,8 +242,8 @@
                      </font>
                   </Label>
                   <ButtonBar layoutX="46.0" layoutY="303.0" prefHeight="40.0" prefWidth="69.0" />
-                  <Button disable="true" layoutX="43.0" layoutY="421.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="76.0" text="Save" />
-                  <Button disable="true" layoutX="158.0" layoutY="421.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="76.0" text="Cancel" />
+                  <Button fx:id="saveBt" disable="true" layoutX="43.0" layoutY="421.0" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="33.0" prefWidth="76.0" text="Save" />
+                  <Button fx:id="cancelBt" disable="true" layoutX="158.0" layoutY="421.0" mnemonicParsing="false" onAction="#cancelButtonPressed" prefHeight="33.0" prefWidth="76.0" text="Cancel" />
                   <Label layoutX="328.0" layoutY="774.0" prefHeight="34.0" prefWidth="55.0" text="State:">
                      <font>
                         <Font name="Arial Black" size="16.0" />
@@ -259,6 +259,7 @@
                         <Font name="Arial Black" size="16.0" />
                      </font>
                   </Label>
+                  <Button fx:id="edit" layoutX="46.0" layoutY="467.0" mnemonicParsing="false" onAction="#editClicked" prefHeight="38.0" prefWidth="75.0" text="Edit" />
                </children>
             </AnchorPane>
          </content>

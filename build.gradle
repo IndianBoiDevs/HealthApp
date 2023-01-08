@@ -8,8 +8,21 @@ repositories {
 }
 
 application {
-    mainClassName("Start")
+    mainClassName("Begin")
 }
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    manifest {
+        attributes "Main-Class": "Begin"
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
 
 dependencies {
     implementation 'mysql:mysql-connector-java:8.0.31'

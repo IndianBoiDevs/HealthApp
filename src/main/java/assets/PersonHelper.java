@@ -5,6 +5,15 @@ public class PersonHelper {
     private static Person currentUser;
     private static Person selected;
 
+    private static int uType;
+
+    public static void setUserType(int i){
+        uType = i;
+    }
+    public static int getUserType(){
+        return  uType;
+    }
+
     public static void setCurrentUser(Person p){
         currentUser = p;
     }

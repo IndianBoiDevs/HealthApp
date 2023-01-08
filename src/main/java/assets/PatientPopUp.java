@@ -39,7 +39,7 @@ public class PatientPopUp {
         stage.setScene(new Scene(root,600,500));
 
         //Create an image object
-        Image icon = new Image("views//icons//patient.png");
+        Image icon = new Image("views/icons/patient.png");
 
         //set the icon as the icon
         stage.getIcons().add(icon);
@@ -56,7 +56,7 @@ public class PatientPopUp {
 
     private Parent getScreen() throws IOException {
         //this is the Parent created vy fxml loader
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views//modifyPatient.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views/modifyPatient.fxml"));
         return root;
 
     }

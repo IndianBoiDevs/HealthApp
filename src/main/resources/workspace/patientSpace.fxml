@@ -17,7 +17,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="close" mnemonicParsing="false" onAction="#closeProgram" text="Close" />
+                  <MenuItem fx:id="logoutdropdown" mnemonicParsing="false" onAction="#menuLogOutButton" text="Log Out" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -27,7 +28,8 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem fx:id="aboutdropdown" mnemonicParsing="false" onAction="#aboutClicked" text="About" />
+                  <MenuItem fx:id="issue" mnemonicParsing="false" onAction="#reportIssues" text="Report Issue" />
             </items>
           </Menu>
         </menus>

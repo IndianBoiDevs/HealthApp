@@ -6,6 +6,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
@@ -17,17 +18,29 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="close" mnemonicParsing="false" onAction="#closeProgram" text="Close" />
+                  <MenuItem fx:id="logoutdropdown" mnemonicParsing="false" onAction="#menuLogOutButton" text="Log Out">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="L" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem fx:id="addPatientDropDown" mnemonicParsing="false" onAction="#addPressed" text="Add Patient" />
+                  <MenuItem fx:id="promote" mnemonicParsing="false" onAction="#promotePressed" text="Promote" />
+                  <MenuItem fx:id="demote" mnemonicParsing="false" onAction="#demotePressed" text="Demote" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem fx:id="aboutdropdown" mnemonicParsing="false" onAction="#aboutClicked" text="About" />
+                  <MenuItem fx:id="issue" mnemonicParsing="false" onAction="#reportIssues" text="Report Issue">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="I" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
             </items>
           </Menu>
         </menus>

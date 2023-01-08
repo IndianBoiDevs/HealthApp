@@ -2,6 +2,7 @@ package controllers;
 
 import assets.LoginTool;
 import assets.Message;
+import assets.PersonHelper;
 import assets.StageManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -53,7 +54,7 @@ public class Login implements Initializable {
         if(loginTool.isOfflineMode() == false) {
             System.out.println("[Debug]: User has selected sign up");
             //change the scene to the sign up
-            manager.changeScene("login//signup.fxml");
+            manager.changeScene("login/signup.fxml");
         }
         else{
             warning.setTextFill(Color.color(1, 0, 0));
@@ -109,7 +110,8 @@ public class Login implements Initializable {
                 warning.setTextFill(Color.color(0, 1, 0));
                 warning.setText("Success!");
                 //change the scene
-                manager.changeScene("workspace//adminSpace.fxml");
+                manager.changeScene("workspace/adminSpace.fxml");
+                PersonHelper.setUserType(code);
             }
             //for staff
             else if (code == 1 ){
@@ -117,7 +119,8 @@ public class Login implements Initializable {
                 warning.setTextFill(Color.color(0, 1, 0));
                 warning.setText("Success!");
                 //change the scene
-                manager.changeScene("workspace//staffSpace.fxml");
+                PersonHelper.setUserType(code);
+                manager.changeScene("workspace/staffSpace.fxml");
             }
             //for patient
             else if (code == 2) {
@@ -125,7 +128,8 @@ public class Login implements Initializable {
                 warning.setTextFill(Color.color(0, 1, 0));
                 warning.setText("Success!");
                 //change the scene
-                manager.changeScene("workspace//patientSpace.fxml");
+                PersonHelper.setUserType(code);
+                manager.changeScene("workspace/patientSpace.fxml");
             }
             else{
                 //reset the boxes

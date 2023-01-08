@@ -49,12 +49,18 @@ public class SearchView implements Initializable {
     @FXML
     private Button finderButton;
     private Button add;
+    @FXML
+    private Button demote;
+    @FXML
+    private Button promote;
 
     private ObservableList<Person> listOfPatients = FXCollections.observableArrayList();
 
     private LoginTool sqlTool;
 
     private ResultSet searchQuery;
+
+    private int userType;
 
     @FXML
     void findPerson(ActionEvent event) {
@@ -201,6 +207,15 @@ public class SearchView implements Initializable {
 
     }
 
+    @FXML
+    void demoteButtonClicked(ActionEvent event) throws IOException {
+        DemotePopUp.display();
+    }
+    @FXML
+    void promoteButtonClicked(ActionEvent event) throws IOException {
+        PromotePopUp.display();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -220,6 +235,22 @@ public class SearchView implements Initializable {
 
         //refresh the list
         refreshList(searchQuery);
+
+        //check if the user is and admin or not
+        if(PersonHelper.getUserType() !=0 ){
+            //if they aren't an admin go ahead and hide the promoted and demote buttons
+            promote.setDisable(true);
+            demote.setDisable(true);
+            promote.setVisible(false);
+            demote.setVisible(false);
+        }
+        else{
+            promote.setDisable(false);
+            demote.setDisable(false);
+            promote.setVisible(true);
+            demote.setVisible(true);
+        }
+
     }
 
 

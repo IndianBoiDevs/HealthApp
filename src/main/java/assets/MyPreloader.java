@@ -21,7 +21,7 @@ public class MyPreloader extends Preloader {
     public void init() throws Exception {
 
         try {
-            Parent root1 = FXMLLoader.load(((getClass().getClassLoader().getResource("splash//splash.fxml")))); //FIXME
+            Parent root1 = FXMLLoader.load(((getClass().getClassLoader().getResource("splash/splash.fxml"))));
             scene = new Scene(root1);
         } catch (Exception e){
             e.printStackTrace();
